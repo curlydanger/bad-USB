@@ -1,0 +1,104 @@
+REM bouncing ducky
+REM auther: curlydanger
+REM right the powershell
+
+REM download the goose
+DELAY 1000
+GUI r
+DELAY 500
+STRING powershell.exe
+ENTER
+DELAY 5000
+
+STRING # Define the target folder and file path
+ENTER
+STRING $folderPath = "C:\path\to"
+ENTER
+STRING $filePath = Join-Path $folderPath "goose.png"
+ENTER
+STRING # Ensure the folder exists, create it if it doesn't
+ENTER
+STRING if (-not (Test-Path $folderPath)) {
+ENTER
+STRING     Write-Host "Folder does not exist. Creating: $folderPath" -ForegroundColor Yellow
+ENTER
+STRING     New-Item -ItemType Directory -Path $folderPath | Out-Null
+ENTER
+STRING } else {
+ENTER
+STRING     Write-Host "Folder already exists: $folderPath" -ForegroundColor Green
+ENTER
+STRING }
+ENTER
+ENTER
+STRING # Define the URL of the PNG to download
+ENTER
+STRING $imageUrl = "https://calvinball.net/goose.png"
+ENTER
+STRING # Download the file
+ENTER
+STRING try {
+ENTER
+STRING     Write-Host "Downloading image from $imageUrl to $filePath..." -ForegroundColor Cyan
+ENTER
+STRING     Invoke-WebRequest -Uri $imageUrl -OutFile $filePath
+ENTER
+STRING     Write-Host "Image successfully downloaded to $filePath" -ForegroundColor Green
+ENTER
+STRING } catch {
+ENTER
+STRING     Write-Host "ERROR: Failed to download the image. Exception: $($_.Exception.Message)" -ForegroundColor Red
+ENTER
+STRING }
+ENTER
+
+DELAY 5000
+REM Write the PowerShell code directly in the shell
+STRING Add-Type -AssemblyName System.Windows.Forms
+ENTER
+STRING Add-Type -AssemblyName System.Drawing
+ENTER
+STRING # Specify the image path
+ENTER
+STRING $imagePath = "C:\path\to\goose.png"
+ENTER
+STRING if (-not (Test-Path $imagePath)) { Write-Host "Image not found!" -ForegroundColor Red; exit }
+ENTER
+STRING $image = [System.Drawing.Image]::FromFile($imagePath)
+SHIFT ENTER
+STRING $form = New-Object System.Windows.Forms.Form
+ENTER
+STRING $form.Size = New-Object System.Drawing.Size(100, 100)
+ENTER
+STRING $form.FormBorderStyle = [System.Windows.Forms.FormBorderStyle]::None
+ENTER
+STRING $form.StartPosition = [System.Windows.Forms.FormStartPosition]::Manual
+ENTER
+STRING $pictureBox = New-Object System.Windows.Forms.PictureBox
+ENTER
+STRING $pictureBox.Image = $image
+ENTER
+STRING $pictureBox.SizeMode = [System.Windows.Forms.PictureBoxSizeMode]::StretchImage
+ENTER
+STRING $pictureBox.Dock = [System.Windows.Forms.DockStyle]::Fill
+ENTER
+STRING $form.Controls.Add($pictureBox)
+ENTER
+STRING $position = New-Object System.Drawing.Point(0, 0)
+ENTER
+STRING $direction = New-Object System.Drawing.Point(5, 5)
+ENTER
+STRING $timer = New-Object System.Windows.Forms.Timer
+ENTER
+STRING $timer.Interval = 50
+ENTER
+STRING $timer.Add_Tick({ $position.X += $direction.X; $position.Y += $direction.Y; $form.Location = $position; $screen = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds; if ($position.X -lt 0 -or $position.X + $form.Width -gt $screen.Width) { $direction.X = -$direction.X }; if ($position.Y -lt 0 -or $position.Y + $form.Height -gt $screen.Height) { $direction.Y = -$direction.Y } })
+ENTER
+STRING $timer.Start()
+ENTER
+STRING [System.Windows.Forms.Application]::Run($form)
+ENTER
+DELAY 1000
+ALT SPACE
+DELAY 200
+STRING n
