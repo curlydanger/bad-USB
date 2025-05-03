@@ -1,0 +1,13 @@
+REM the dreaded update
+REM auther: anonymous
+
+DELAY 1000
+GUI r
+DELAY 500
+STRING chrome.exe
+ENTER
+DELAY 1000
+STRING fakeupdate.net/win10ue/
+ENTER
+DELAY 1000
+F11
