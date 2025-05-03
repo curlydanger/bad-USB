@@ -1,0 +1,28 @@
+REM Open Notepad
+DELAY 1000
+GUI r
+DELAY 500
+STRING notepad.exe
+ENTER
+DELAY 1000
+
+REM the good stuff
+STRING you should be much more careful when pluging things into your computer.
+ENTER
+STRING they could contain things like duckyscript!
+ENTER
+STRING but now that I am in your computer lets have some fun shall we?
+DELAY 5000
+
+GUI r
+DELAY 500
+STRING http://youtube.com/watch?v=dQw4w9WgXcQ
+ENTER
+DELAY 7000
+GUI r
+DELAY 500
+STRING notepad.exe
+ENTER
+DELAY 1000
+
+STRING well, I hope that I have severely anoyed you! so long! also make sure you close all the windows I opened.
