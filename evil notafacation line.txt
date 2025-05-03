@@ -1,0 +1,56 @@
+REM Open Notepad
+DELAY 1000
+GUI r
+DELAY 500
+STRING notepad.exe
+ENTER
+DELAY 1000
+
+REM Write the VBScript content
+STRING X=MsgBox("do you want to open this file",4+64,"File Opener")
+ENTER
+STRING X=MsgBox("Error while opening file. Do you want to fix it?",4+64,"File Opener")
+ENTER
+STRING X=MsgBox("Unable to fix this error. Do you want to scan your computer?",3+48,"computer scan")
+ENTER
+STRING X=MsgBox("Alert! Virus has been detected. Do you want to delete this virus?",3+16,"ALERT!")
+ENTER
+STRING X=MsgBox("Unable to delete this virus.",1+64,"Critical Error")
+ENTER
+STRING X=MsgBox("Virus is Activated",2+16,"Virus Alert")
+ENTER
+STRING X=MsgBox("Deleting System Files..",2+16,"File Deletion")
+ENTER
+STRING X=MsgBox("Virus is copying your password..",2+48,"Virus Alert")
+ENTER
+STRING X=MsgBox("Please wait. Uploading your files to hack server. Do you want to stop it?",4+64,"File Transfer")
+ENTER
+STRING X=MsgBox("Cannot stop. File transfer completed.",1+16,"Completed")
+ENTER
+STRING X=MsgBox("your computer is hacked",1+48,"ALERT!")
+ENTER
+STRING X=MsgBox("You cannot access your computer anymore..",1+48,"Unaccessable")
+ENTER
+STRING X=MsgBox("Ha Ha Ha! this was a prank.",0+16,"Mwa, Ha, Ha")
+ENTER
+STRING X=MsgBox("Your computer is Actually fine.",0+64,"Safe")
+ENTER
+STRING X=MsgBox("For now.",0+64,"Menacing")
+DELAY 500
+
+REM Save the file as textfile.vbs on Desktop
+CTRL s
+DELAY 500
+STRING textfile.vbs
+ENTER
+DELAY 500
+ALT f
+STRING x
+ENTER
+DELAY 500
+
+REM Execute the VBScript
+GUI r
+DELAY 500
+STRING cscript.exe C:\Users\nateb\OneDrive\Desktop\glorb.vbs
+ENTER
