@@ -1,0 +1,29 @@
+REM open notepad
+DELAY 1000
+GUI r
+DELAY 500
+STRING notepad.exe
+ENTER
+DELAY 1000
+
+REM talk in notepad
+STRING you do not eat enough sandwiches. you should eat more sandwitches.
+ENTER
+STRING you need to eat at least 1 sandwitch in the next two seconds or your
+ENTER
+STRING a goner.
+DELAY 5000
+
+REM punish the person with the computer
+ENTER
+ENTER
+STRING all right, thats it. you have failed the sandwitch community.
+ENTER
+STRING you shall pay.
+DELAY 5000
+
+REM open rickroll
+GUI r
+DELAY 500
+STRING http://youtube.com/watch?v=dQw4w9WgXcQ
+ENTER
